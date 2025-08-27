@@ -1,61 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en' }}">
-  {%- include head.liquid -%}
-  <body>
-    <div class="sidebar-layout">
-      <aside class="sidebar">
-        <div class="sidebar-inner">
-          <div class="profile-section">
-            {% if site.profile and site.profile.image %}
-              <img
-                src="{{ site.profile.image | relative_url }}"
-                alt="{{ site.first_name }} {{ site.last_name }}"
-                class="profile-image"
-              >
-            {% endif %}
-            <h1>{{ site.first_name }} {{ site.last_name }}</h1>
-            {% if site.profile.position %}
-              <p class="position">{{ site.profile.position }}</p>
-            {% endif %}
-            {% if site.profile.affiliation %}
-              <p class="affiliation">{{ site.profile.affiliation }}</p>
-            {% endif %}
-          </div>
+# -----------------------------------------------------------------------------
+# Site settings
+# -----------------------------------------------------------------------------
+title: Shuo Zhang
+first_name: Shuo
+middle_name: ""
+last_name: Zhang
+email: sz_whu@163.com
+description: A senior student in Wuhan University
+# The URL of your site
+url: https://shuozhang.dev
+baseurl: ""
 
-          <nav class="sidebar-nav">
-            <a href="{{ '/' | relative_url }}" {% if page.permalink == '/' %}class="active"{% endif %}>Home</a>
-            <a href="{{ '/cv/' | relative_url }}" {% if page.permalink == '/cv/' %}class="active"{% endif %}>Curriculum Vitae</a>
-            <a href="{{ '/publications/' | relative_url }}" {% if page.permalink == '/publications/' %}class="active"{% endif %}>Research</a>
-            <a href="{{ '/projects/' | relative_url }}" {% if page.permalink == '/projects/' %}class="active"{% endif %}>Projects</a>
-            {% if site.blog_nav %}
-              <a href="{{ '/blog/' | relative_url }}" {% if page.permalink == '/blog/' %}class="active"{% endif %}>Blog</a>
-            {% endif %}
-          </nav>
-
-          <div class="social-links">
-            {% if site.email %}
-              <a href="mailto:{{ site.email }}">Email</a>
-            {% endif %}
-            {% if site.github_username %}
-              <a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a>
-            {% endif %}
-            {% if site.scholar_userid %}
-              <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank">Google Scholar</a>
-            {% endif %}
-            {% if site.orcid_id %}
-              <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank">ORCID</a>
-            {% endif %}
-          </div>
-        </div>
-      </aside>
-
-      <main class="main-content">
-        <div class="content-wrapper">
-          {{ content }}
-        </div>
-      </main>
-    </div>
-
-    {%- include scripts.liquid -%}
-  </body>
-</html>
+# -----------------------------------------------------------------------------
+# Social integration
+# -----------------------------------------------------------------------------
+github_username: shuozhang196
