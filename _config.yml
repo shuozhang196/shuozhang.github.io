@@ -5,10 +5,10 @@ title: Shuo Zhang
 first_name: Shuo
 middle_name: 
 last_name: Zhang
-email: sz_whu@163.com
-description: A senior student in Wuhanuniversity
+email: "sz_whu@163.com"
+description: "A senior student in Wuhanuniversity"
 # The URL of your site
-url: https://shuozhang.dev
+url: "https://shuozhang.dev"
 baseurl: 
 # -----------------------------------------------------------------------------
 # Social integration
