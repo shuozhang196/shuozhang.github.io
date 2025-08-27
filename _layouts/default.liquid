@@ -15,42 +15,59 @@
     {% include head.liquid %}
   </head>
 
-  <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
-    <!-- Header -->
-    {% include header.liquid %}
+  <body>
+  <div class="sidebar-layout">
+    <!-- 左侧固定导航栏 -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="profile-section">
+          {% if site.profile and site.profile.image %}
+            <img src="{{ site.profile.image | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}" class="profile-image">
+          {% endif %}
+          <h1>{{ site.first_name }} {{ site.last_name }}</h1>
+          {% if site.profile.position %}
+            <p class="position">{{ site.profile.position }}</p>
+          {% endif %}
+          {% if site.profile.affiliation %}
+            <p class="affiliation">{{ site.profile.affiliation }}</p>
+          {% endif %}
+        </div>
+        
+        <nav class="sidebar-nav">
+          <a href="{{ '/' | relative_url }}" {% if page.permalink == '/' %}class="active"{% endif %}>Home</a>
+          <a href="{{ '/cv/' | relative_url }}" {% if page.permalink == '/cv/' %}class="active"{% endif %}>Curriculum Vitae</a>
+          <a href="{{ '/publications/' | relative_url }}" {% if page.permalink == '/publications/' %}class="active"{% endif %}>Research</a>
+          <a href="{{ '/projects/' | relative_url }}" {% if page.permalink == '/projects/' %}class="active"{% endif %}>Projects</a>
+          {% if site.blog_nav %}
+            <a href="{{ '/blog/' | relative_url }}" {% if page.permalink == '/blog/' %}class="active"{% endif %}>Blog</a>
+          {% endif %}
+        </nav>
+        
+        <div class="social-links">
+          {% if site.email %}
+            <a href="mailto:{{ site.email }}">Email</a>
+          {% endif %}
+          {% if site.github_username %}
+            <a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a>
+          {% endif %}
+          {% if site.scholar_userid %}
+            <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank">Google Scholar</a>
+          {% endif %}
+          {% if site.orcid_id %}
+            <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank">ORCID</a>
+          {% endif %}
+        </div>
+      </div>
+    </aside>
 
-    <!-- Content -->
-    <div class="container mt-5" role="main">
-      {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
-          <div class="row">
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-          </div>
-        {% else %}
-          <div class="row">
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-          </div>
-        {% endif %}
-      {% else %}
+    <!-- 右侧主内容区 -->
+    <main class="main-content">
+      <div class="content-wrapper">
         {{ content }}
-      {% endif %}
-    </div>
+      </div>
+    </main>
+  </div>
 
-    <!-- Footer -->
-    {% include footer.liquid %}
-
-    <!-- JavaScripts -->
-    {% include scripts.liquid %}
-  </body>
+  {% include scripts.liquid %}
+</body>
 </html>
