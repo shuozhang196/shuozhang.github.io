@@ -1,22 +1,17 @@
 # -----------------------------------------------------------------------------
 # Site settings
 # -----------------------------------------------------------------------------
-
 title: Shuo Zhang
 first_name: Shuo
 middle_name: 
 last_name: Zhang
-email: your-email@example.com
+email: sz_whu@163.com
 
-# A very short description of your page  
-description: 大三学生，准备做学术研究
-
+description: A senior student in Wuhanuniversity
 # The URL of your site
 url: https://shuozhang.dev
 baseurl: 
-
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
-
-github_username: your-github-username # 你的实际GitHub用户名
+github_username: shuozhang196
